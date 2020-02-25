@@ -75,24 +75,46 @@ function dragElement(elmnt) {
     }
 }
 
-function createGimli(){
+function createGimli() {
     let gimli = document.createElement("div");
     gimli.id = "gimli";
-    gimli.style.position="absolute"
+    gimli.style.position = "absolute"
+    let gimliZoom = document.createElement("div");
+    gimliZoom.id = "gimliZoom";
     let image = document.createElement("img");
-    image.style.width= "100%";
-    image.src= "https://media.tenor.com/images/244d54e0b9e9aac0bdb6c9fd78b0f6f1/tenor.gif";
-    gimli.appendChild(image);
+    image.style.width = "100%";
+    image.src = "https://media.tenor.com/images/244d54e0b9e9aac0bdb6c9fd78b0f6f1/tenor.gif";
+    gimliZoom.appendChild(image);
+    gimli.appendChild(gimliZoom);
     document.getElementById("container").appendChild(gimli);
-    let posGimli = () =>{
-        gimli.style.top = Math.random()*screen-height+"px";
-        gimli.style.left = Math.random()*screen-width+"px";
+    let posGimli = () => {
+        gimli.style.top = Math.random() * screen.height - 100 + "px";
+        gimli.style.left = Math.random() * screen.width - 100 + "px";
     }
     setInterval(() => {
         posGimli();
+    }, 800);
+}
+createGimli();
+
+function createMush() {
+    let mush = document.createElement("div");
+    mush.id = "mush";
+    mush.style.position = "absolute"
+    let image = document.createElement("img");
+    image.style.mush = "100%";
+    image.src = "http://www.legendariummedia.com/wp-content/uploads/2016/07/mushrooms-01-1.gif";
+    mush.appendChild(image);
+    document.getElementById("container").appendChild(mush);
+    let posMush = () => {
+        gimli.style.top = Math.random() * screen.height - 100 + "px";
+        gimli.style.left = Math.random() * screen.width - 100 + "px";
+    }
+    setInterval(() => {
+        posMush();
     }, 100);
 }
-    createGimli();
+createMush();
 
 function listCreator() {
     let listy = document.createElement("div");
@@ -103,7 +125,7 @@ function listCreator() {
     let lists = document.createElement("ul");
     for (let i = 0; i < 10; i++) {
         let listItem = document.createElement("li");
-        listItem.innerText = "This is item number " + (i+1);
+        listItem.innerText = "This is item number " + (i + 1);
         lists.append(listItem);
     }
 
@@ -113,7 +135,7 @@ function listCreator() {
     console.log(thingList);
 }
 
-listCreator();
+// listCreator();
 
 // let dogs=document.getElementById("dogs");
 // let title=dogs.getElementsByClassName("title")[0];
@@ -123,6 +145,5 @@ listCreator();
 // listItem.innerText="Four";
 // dogList.append(listItem);
 // console.log(dogList);
-
 
 
