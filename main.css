@@ -56,57 +56,7 @@ body, html {
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
   }
-  
-  .popup2{
-    border-radius: 7px;
-    background-image:url('http://tolkiengateway.net/w/images/thumb/2/23/The_Lord_of_the_Rings_-_The_Motion_Picture_Trilogy_-_Snaga.jpg/250px-The_Lord_of_the_Rings_-_The_Motion_Picture_Trilogy_-_Snaga.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin:30px auto 0;
-    padding:6px;  
-    position:absolute;
-    width:80px;
-    top: 50%;
-    left: 50%;
-    margin-left: 600px;
-    margin-top: -40px;
-}
-  
 
-  .popup2 .popup2text {
-    visibility: hidden;
-    width: 160px;
-    background-image:url('https://media.tenor.com/images/e5370117644a828af3ce856d9f9b0ac2/tenor.gif');
-    color: #fff;
-    text-align: center;
-    border-radius: 60px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-  }
-  
-
-  .popup2 .popup2text::after {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    margin-left: -800px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  
-  .popup2 .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
   
  
   @-webkit-keyframes fadeIn {
@@ -119,6 +69,8 @@ body, html {
     to {opacity:1 ;}
   }
 
+
+  
   #mydiv {
     position: absolute;
     z-index: 9;
@@ -165,3 +117,6 @@ body, html {
     100% {transform : rotate(360deg);}
   }
 
+#lol {
+opacity: 0%;
+}

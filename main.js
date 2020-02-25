@@ -1,7 +1,3 @@
-
-
-
-
 let obj = document.createElement("div");
 obj.id = "object";
 obj.style.position = "absolute"
@@ -80,16 +76,5 @@ function dragElement(elmnt) {
 
 
 
-let person={
-    "name":"Darth Maul",
-}
-person.lightsaber="purple";
 
-console.log(person);
 
-let jedi={
-    "0":"Count Dooku",
-    "1":42,
-    "2":"Harry Potter"
-}
-console.log(jedi[0]);
