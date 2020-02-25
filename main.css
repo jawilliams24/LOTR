@@ -107,16 +107,37 @@ body, html {
   }
   
   @keyframes revolve {
-    0% {transform : rotate(20deg);}
-    10% {transform : rotate(30deg);}
-    20% {transform : rotate(40deg);}
-    30% {transform : rotate(50deg);}
-    40% {transform : rotate(70deg);}
-    50% {transform : rotate(100deg);}
-    70% {transform : rotate(140deg);}
+    0% {transform : rotate(0deg);}
+    10% {transform : rotate(36deg);}
+    20% {transform : rotate(72deg);}
+    30% {transform : rotate(108deg);}
+    40% {transform : rotate(144deg);}
+    50% {transform : rotate(180deg);}
+    60% {transform : rotate(216deg);}
+    70% {transform : rotate(252deg);}
+    80% {transform : rotate(288deg);}
+    90% {transform : rotate(324deg);}
     100% {transform : rotate(360deg);}
   }
 
 #lol {
 opacity: 0%;
+}
+
+.headers{
+    font-size: 5em;
+    font-family: cursive;
+}
+
+#gimli {
+    height: 200px;
+    width: 200px;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    animation-name: revolve;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
 }
