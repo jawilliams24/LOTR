@@ -84,8 +84,13 @@ function createGimli(){
     image.src= "https://media.tenor.com/images/244d54e0b9e9aac0bdb6c9fd78b0f6f1/tenor.gif";
     gimli.appendChild(image);
     document.getElementById("container").appendChild(gimli);
-    gimli.style.top = Math.random()*300+"px";
-    gimli.style.left = Math.random()*500+"px";
+    let posGimli = () =>{
+        gimli.style.top = Math.random()*screen-height+"px";
+        gimli.style.left = Math.random()*screen-width+"px";
+    }
+    setInterval(() => {
+        posGimli();
+    }, 100);
 }
     createGimli();
 
