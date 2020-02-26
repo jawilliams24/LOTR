@@ -133,6 +133,15 @@ body, html {
 opacity: 0%;
 }
 
+#lol2{
+  position: absolute;
+  top: 10%;
+  opacity: 0%;
+  animation-name: revolve;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
 .headers{
     font-size: 5em;
     font-family: cursive;
