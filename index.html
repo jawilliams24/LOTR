@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row">
             <div class="col-sm-10 col-lg-12 box">
                 They call it a mine
@@ -36,17 +36,23 @@
                 This is a tomb
             </div>
         </div>
-    </div>
+    </div> -->
     <div id="container">
         <div id="msg"></div>
     </div>
 
+
+    <!-- <img id="bottomGollum" src="gollum.gif" alt="gollum"> -->
+
+
     <div class="popup text-center text-danger" onclick="myFunction()">What is it, what do you smell?
-        <span class="popuptext" id="myPopup">MAN FLESH</span>
+        <span class="popuptext" id="myPopup"></span>
     </div>
-<div id="lol" style="cursor: pointer;" target="_blank" onmouseover="window.location.href = 'https://www.youtube.com/watch?v=uE-1RPDqJAY';"  class="col-sm-12 col-lg box">
-    Pizza
-</div>
+    <div id="lol" style="cursor: pointer;" target="_blank"
+        onmouseover="window.location.href = 'https://www.youtube.com/watch?v=uE-1RPDqJAY';"
+        class="col-sm-12 col-lg box">
+        Pizza
+    </div>
 
     <div id="mydiv">
         <div id="mydivheader">Move me</div>
@@ -54,9 +60,17 @@
         <p>__________________________</p>
         <p>.</p>
     </div>
-
-    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/rH4N_l778bE?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-    <audio src="https://www.dropbox.com/s/ss9wsiz88g09nk4/nazgul-scream_1.mp3?dl=0"></audio>
+    <form onsubmit="showData(event)" id="form">
+        <h3>What is your username?</h3>
+        <input type="text" id="a" name="username">
+        <h3>Password</h3>
+        <input type="password" id="b" name="password">
+        <input type="submit">
+    </form>
+    <output form="formy" for="a b"></output>
+        
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rH4N_l778bE?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- <audio src="/nazgul-scream_1.mp3"></audio> -->
 
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

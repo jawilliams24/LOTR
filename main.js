@@ -135,6 +135,108 @@ function listCreator() {
     console.log(thingList);
 }
 
+function zoomin() {
+    var myImg = document.getElementById("gollum");
+    var currWidth = myImg.clientWidth;
+    var currHeight = myImg.clientHeight;
+    myImg.style.width = (currWidth + 50) + "px";
+    myImg.style.height = (currHeight + 50) + "px";
+}
+function zoomout() {
+    var myImg = document.getElementById("gollum");
+    var currWidth = myImg.clientWidth;
+    var currHeight = myImg.clientHeight;
+    myImg.style.width = (currWidth - 50) + "px";
+    myImg.style.height = (currHeight - 50) + "px";
+}
+
+body.addEventListener("keydown", event => {
+    if (event.keyCode == 38) {
+        zoomin();
+    } else if (event.keyCode == 40) {
+        zoomout();
+    }
+})
+function addGollum() {
+    let image = document.createElement("img");
+    image.className = "gollum";
+    image.src = "/gollum.gif";
+    image.style.display = "block";
+    image.alt = "gollumz";
+    image.style.position = "absolute";
+    body.append(image);
+}
+
+
+function myMove(gollumId) {
+    var elem = document.getElementById(gollumId);
+    var pos = -100;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (pos == screen.clientX) {
+            clearInterval(id);
+            let remove = document.getElementById(gollumId);
+            remove.parentNode.removeChild(remove);
+        } else {
+            pos += 2;
+            elem.style.left = pos + 'px';
+        }
+    }
+}
+
+var count = 0;
+body.addEventListener("click", (e) => {
+    let myImg = document.createElement("img");
+    myImg.src = "gollum.gif";
+    myImg.alt = "gollum";
+    myImg.className = "bottomGollum";
+    myImg.id = ("bottomGollum" + count);
+    count++;
+    body.append(myImg);
+    myMove(myImg.id);
+})
+
+let showData = (event) => {
+    event.preventDefault();
+    let form = event.target;
+    let objy = {};
+    for (let input of form) {
+        if (input.name) {
+            objy[input.name] = input.value;
+            console.log(input.name, input.value);
+        }
+    }
+    // console.log(objy);
+}
+
+// let image = document.createElement("image");
+// document.keydown = checkKey;
+// image.src= "https://i.ytimg.com/vi/3xYXUeSmb-Y/maxresdefault.jpg";
+// image.alt="Image moving";
+// image.style.position = "absolute";
+// image.style.top="300px";
+// image.style.left="300px";
+// body.append(image);
+
+// function checkKey(){
+//     body.addEventListener("keydown", (q) => {
+//         var currWidth = image.clientWidth;
+//         if (event.keyCode == 17) {
+//             if(currWidth == 500){
+//                 alert("Maximum zoom-in level reached.");
+//             } else{
+//                 image.style.width = (currWidth + 50) + "px";
+//          }
+//         } else if(event.keyCode == 16){
+//             if(currWidth == 50){
+//                 alert("Maximum zoom-out level reached.");
+//             } else{
+//                 image.style.width = ((currWidth - 50) + "px");
+//             }
+//         }
+//     });
+// }
+
 // listCreator();
 
 // let dogs=document.getElementById("dogs");
