@@ -196,7 +196,7 @@ body.addEventListener("click", (e) => {
     myMove(myImg.id);
 })
 
-let showData = (event) => {
+let postData = (event) => {
     event.preventDefault();
     let form = event.target;
     let objy = {};
@@ -206,8 +206,35 @@ let showData = (event) => {
             console.log(input.name, input.value);
         }
     }
-    // console.log(objy);
+    let request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8081/note/");
+    request.setRequestHeader("Content-Type", "application/json");
+    let body = JSON.stringify(objy);
+    console.log(body);
+    request.send(body);
+
+    request.onload = () => {
+        getData();
+    }
+    
 }
+
+let getData = () => {
+    let request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:8081/note/");
+    request.send();
+    request.onload = () => {
+        let data = JSON.parse(request.response);
+        let list = document.getElementById("tasks");
+        list.innerText="";
+        for(let value of data){
+            let listItem = document.createElement("li");
+            listItem.innerText = value.text;
+            list.appendChild(listItem);
+        }
+    }
+}
+
 
 // let image = document.createElement("image");
 // document.keydown = checkKey;
