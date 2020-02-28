@@ -196,6 +196,34 @@ body.addEventListener("click", (e) => {
     myMove(myImg.id);
 })
 
+let getData = () => {
+    let request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:8081/note/");
+    request.send();
+    request.onload = () => {
+        let data = JSON.parse(request.response);
+        let list = document.getElementById("tasks");
+        list.innerText = "";
+        for (let value of data) {
+            let listItem = document.createElement("li");
+            let div = document.createElement("div");
+            let para = document.createElement("p");
+            para.innerText = value.text;
+            let button = document.createElement("btn");
+            button.className = "btn btn-danger";
+            button.innerText = "DELETE";
+            button.addEventListener("click", () => {
+                deleteData(value.id);
+            })
+
+            div.appendChild(para);
+            div.appendChild(button);
+            
+            listItem.appendChild(div);
+            list.appendChild(listItem);
+        }
+    }
+}
 let postData = (event) => {
     event.preventDefault();
     let form = event.target;
@@ -216,25 +244,32 @@ let postData = (event) => {
     request.onload = () => {
         getData();
     }
-    
+
 }
 
-let getData = () => {
+
+let deleteData = (id) => {
     let request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:8081/note/");
+    request.open("DELETE", "http://localhost:8081/note/" + id + "/");
     request.send();
     request.onload = () => {
-        let data = JSON.parse(request.response);
-        let list = document.getElementById("tasks");
-        list.innerText="";
-        for(let value of data){
-            let listItem = document.createElement("li");
-            listItem.innerText = value.text;
-            list.appendChild(listItem);
-        }
+        getData();
     }
 }
 
+
+let putData = () => {
+    let request = new XMLHttpRequest();
+    request.open("PUT", "http://localhost:8081/note/");
+    request.setRequestHeader("Content-Type", "application/json");
+    let body = JSON.stringify(objy);
+    request.send(body);
+    request.onload = () => {
+        getData();
+    }
+}
+
+getData();
 
 // let image = document.createElement("image");
 // document.keydown = checkKey;
